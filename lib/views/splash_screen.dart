@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: Constants.primaryColor,
         body: Center(
@@ -24,18 +24,36 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.text_fields_outlined,
                 color: Constants.whiteColor,
                 size: Constants.sizeXL * 8,
               ),
-              Text(Constants.appName,
+              const Text(
+                Constants.appName,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: Constants.sizeXL * 2,
                   fontWeight: Constants.bold,
                 ),
               ),
+              const SizedBox(
+                height: Constants.sizeXXXL,
+              ),
+              TextButton(
+                onPressed: () {},
+                style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
+                ),
+                child: const Text(
+                  "Get Started >",
+                  style: TextStyle(
+                    color: Colors.yellow,
+                    fontSize: Constants.sizeXL * 2,
+                    fontWeight: Constants.bold,
+                  ),
+                ),
+              )
             ],
           ),
         ),

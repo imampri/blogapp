@@ -1,13 +1,10 @@
 import 'package:blogapp/views/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'utils/constants.dart';
+import '../utils/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -20,11 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return const MaterialApp(
       title: Constants.appName,
       debugShowCheckedModeBanner: false,
-      smartManagement: SmartManagement.full,
-      home: SplashhScreen(),
+      home: SplashScreen(),
     );
   }
 }

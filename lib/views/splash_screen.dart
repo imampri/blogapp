@@ -1,48 +1,40 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../controllers/auth_controller.dart';
 import '../utils/constants.dart';
-import '../widgets/custom_text.dart';
 
-class SplashhScreen extends StatefulWidget {
-  const SplashhScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<SplashhScreen> createState() => _SplashhScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashhScreenState extends State<SplashhScreen> {
-  final authController = Get.put(AuthenticateController());
-
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () => authController.checkLoginStatus());
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        backgroundColor: Constants.secondaryColor,
+        backgroundColor: Constants.primaryColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.sticky_note_2,
+              Icon(
+                Icons.text_fields_outlined,
                 color: Constants.whiteColor,
                 size: Constants.sizeXL * 8,
               ),
-              Txt(
-                text: Constants.appName,
-                color: Constants.whiteColor.withOpacity(0.8),
-                fontSize: Constants.headerFontSize * 1.5,
-                fontWeight: Constants.bold,
+              Text(Constants.appName,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: Constants.sizeXL * 2,
+                  fontWeight: Constants.bold,
+                ),
               ),
             ],
           ),

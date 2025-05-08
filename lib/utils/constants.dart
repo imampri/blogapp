@@ -1,17 +1,10 @@
-import 'dart:ui';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-
-var firebaseAuth = FirebaseAuth.instance;
-var firebaseStorage = FirebaseStorage.instance;
-var firestore = FirebaseFirestore.instance;
+import 'package:flutter/material.dart';
 
 class Constants {
-  static const String appName = "Bloggy";
+  static const String appName = "Blog App";
 
-  static const Color primaryColor = Color(0xFF141312);
-  static const Color secondaryColor = Color.fromARGB(255, 115, 89, 231);
+  static const Color primaryColor = Colors.blue;
+  static const Color secondaryColor = Colors.lightBlue;
   static const Color lightSecondaryColor = Color.fromARGB(255, 148, 128, 238);
   static const Color scaffoldBgColor = Color.fromARGB(255, 224, 219, 219);
   static const Color backgroundColor = Color.fromARGB(255, 209, 204, 204);

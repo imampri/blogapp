@@ -1,3 +1,4 @@
+import 'package:blogapp/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
@@ -41,7 +42,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: Constants.sizeXXXL,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
+                },
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
                 ),

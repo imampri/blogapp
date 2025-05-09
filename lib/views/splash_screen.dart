@@ -50,11 +50,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 },
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
+                  elevation: WidgetStatePropertyAll(10),
                 ),
                 child: const Text(
                   "Mulai >",
                   style: TextStyle(
-                    color: Colors.yellow,
+                    color: Colors.white,
                     fontSize: Constants.sizeXL * 2,
                     fontWeight: Constants.bold,
                   ),

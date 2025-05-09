@@ -7,6 +7,8 @@ import 'article_detail_screen.dart';
 import 'article_form_screen.dart';
 
 class ArticleListScreen extends StatefulWidget {
+  const ArticleListScreen({super.key});
+
   @override
   _ArticleListScreenState createState() => _ArticleListScreenState();
 }
@@ -40,6 +42,14 @@ class _ArticleListScreenState extends State<ArticleListScreen> {
     if (result == true) _loadArticles();
   }
 
+  Future<void> _deleteArticle(int index) async {
+    setState(() {
+      articles.removeAt(index);
+    });
+
+    await ArticleStorage.saveArticles(articles);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,9 +74,18 @@ class _ArticleListScreenState extends State<ArticleListScreen> {
                   : const Icon(Icons.broken_image),
               title: Text(article.title),
               subtitle: Text(article.subtitle),
-              trailing: IconButton(
-                icon: const Icon(Icons.edit),
-                onPressed: () => _openForm(article: article, index: index),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.edit),
+                    onPressed: () => _openForm(article: article, index: index),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.delete),
+                    onPressed: () => _showDeleteDialog(index),
+                  ),
+                ],
               ),
               onTap: () => Navigator.push(
                 context,
@@ -82,6 +101,33 @@ class _ArticleListScreenState extends State<ArticleListScreen> {
         onPressed: () => _openForm(),
         child: const Icon(Icons.add),
       ),
+    );
+  }
+
+  void _showDeleteDialog(int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Hapus Artikel"),
+          content: const Text("Apakah Anda yakin ingin menghapus artikel ini?"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text("Batal"),
+            ),
+            TextButton(
+              onPressed: () {
+                _deleteArticle(index); // Hapus artikel
+                Navigator.pop(context); // Tutup dialog
+              },
+              child: const Text("Hapus"),
+            ),
+          ],
+        );
+      },
     );
   }
 }

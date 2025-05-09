@@ -1,4 +1,4 @@
-import 'package:blogapp/views/home_screen.dart';
+import 'package:blogapp/views/article_list_screen.dart';
 import 'package:flutter/material.dart';
 import '../utils/constants.dart';
 
@@ -45,14 +45,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    MaterialPageRoute(builder: (context) => ArticleListScreen()),
                   );
                 },
                 style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.lightBlue),
                 ),
                 child: const Text(
-                  "Get Started >",
+                  "Mulai >",
                   style: TextStyle(
                     color: Colors.yellow,
                     fontSize: Constants.sizeXL * 2,

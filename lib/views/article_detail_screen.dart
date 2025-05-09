@@ -13,11 +13,9 @@ class ArticleDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constants.primaryColor,
+        foregroundColor: Colors.white,
         title: Text(
           article.title,
-          style: const TextStyle(
-            color: Colors.white,
-          ),
         ),
       ),
       body: SingleChildScrollView(

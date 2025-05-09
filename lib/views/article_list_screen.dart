@@ -55,11 +55,9 @@ class _ArticleListScreenState extends State<ArticleListScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constants.primaryColor,
+        foregroundColor: Colors.white,
         title: const Text(
           'Daftar Artikel',
-          style: TextStyle(
-            color: Colors.white,
-          ),
         ),
       ),
       body: ListView.builder(

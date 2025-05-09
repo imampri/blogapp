@@ -77,11 +77,9 @@ class _ArticleFormScreenState extends State<ArticleFormScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constants.primaryColor,
+        foregroundColor: Colors.white,
         title: Text(
           widget.article == null ? 'Tambah Artikel' : 'Edit Artikel',
-          style: const TextStyle(
-            color: Colors.white,
-          ),
         ),
       ),
       body: Padding(
